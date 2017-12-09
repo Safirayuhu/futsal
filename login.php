@@ -6,20 +6,25 @@ if(isset($_POST['submit'])){
     $name = $_POST['username'];
     $password = $_POST['password'];
 
-    $q="SELECT * FROM user WHERE nama_user='$name' AND password='$password'";
+    $q="SELECT * FROM user WHERE username='$name' AND password='$password'";
 
     $qry=mysql_query($q);
-    $cek = mysql_num_rows($qry);
-    if($cek >0){
-        header('Location: lapangan.php');
-    }else{
-        echo "gak ada";
+    $row = mysql_fetch_array($qry);
+    if ($row['username'] == $name AND $row['password'] == $password) {
+
+        session_start(); // memulai fungsi session
+        $_SESSION['nama'] = $name;
+
+        header("location:lapangan.php"); 
+    }else {
+        echo "Gagal Masuk"; // jika gagal, maka muncul teks gagal masuk
     }
 }
 
 ?>
 
 <div class="col-md-6">
+<h1>Silahkan login</h1>
 <form action="" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>

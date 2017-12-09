@@ -1,47 +1,40 @@
 <?php
 include "koneksi.php";
+include "head.php";
 $idbooking = $_GET['id_booking'];
 
 $q="SELECT * FROM booking WHERE id_booking='$idbooking'";
 $qry=mysql_query($q);
 while ($row=mysql_fetch_array($qry)) { ?>
-
-    <table>
+<div class="container">
+    <table class="table">
     <tr>
-        <td>Nama</td>
+        <th>Nama</th>
+        <th>Jam mulai</th>
+        <th>Jam selesai</th>
+        <th>Harga total</th>
+        <th>Uang muka</th>
+        <th>No Rekening</th>
+    </tr>
+
+    <tr>
         <td><?php echo $row['username']?></td>
-    </tr>
-
-    <tr>
-        <td>Jam mulai</td>
         <td><?php echo $start = $row['jam_mulai']?></td>
-    </tr>
-
-    <tr>
-        <td>Jam selesai</td>
         <td><?php echo $end = $row['jam_selesai']?></td>
-    </tr>
-    <?php
-    $price = $end - $start;
-    // echo $price;
-    $harga = 150000*$price;
-    $dp = $harga/2;
-    ?>
 
-    <tr>
-        <td>Harga total</td>
-        <td><?php echo $harga ?></td>
-    </tr>
-
-    <tr>
-        <td>Uang muka</td>
+        <?php
+        $price = $end - $start;
+        // echo $price;
+        $harga = 150000*$price;
+        $dp = $harga/2;
+        ?>
+        <td bgcolor="#00FF00"><?php echo $harga ?></td>
         <td><?php echo $dp ?></td>
-    </tr>
-
-    <tr>
-        <td>No Rekening</td>
         <td>12345678 an Futsal</td>
     </tr>
     </table>
+</div>
+<?php }
 
-<?php } ?>
+include "foot.php";
+?>

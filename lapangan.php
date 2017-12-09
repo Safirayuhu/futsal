@@ -2,26 +2,61 @@
 include "koneksi.php";
 include "head.php";
 
+$nama = $_SESSION['nama'];
+if($nama==''){
+    header('location:index.php');
+}
+
 if(isset($_POST['submit'])){
+    $nama = $_POST['nama'];
+    $lapangan = $_POST['lapangan'];
     $jammulai = $_POST['mulai'];
     $jamselesai = $_POST['selesai'];
+    $date = date('Y-m-d');
 
-    $q="INSERT INTO booking (jam_mulai, jam_selesai)VALUES ('$jammulai', '$jamselesai')";
-    $qry=mysql_query($q);
-    if($qry){
-        echo "Data disimpan";
-    }else{
-        echo "Data gagal disimpan";
-    }
+    // if($jamselesai < $jammulai){
+    //     echo "Jam selesai harus diatas jam mulai";
+    // }elseif($jamselesai == $jammulai){
+    //     echo "Jam selesai harus diatas jam mulai";
+    // }else{
+
+        // $qcek = "SELECT jam_mulai FROM booking WHERE date='$date'";
+        // // echo $qcek;
+        // $qrycek = mysql_query($qcek);
+        // $cekdata = mysql_fetch_array($qrycek);
+
+        // if($cekdata['jam_mulai'] == $jammulai){
+        //     echo "<script>alert('Jam mulai sudah di booking')</script>";
+        //     // header('location:lapangan.php');
+        // }else{
+
+            $q="INSERT INTO booking (username,lapangan,jam_mulai, jam_selesai,date)VALUES ('$nama','$lapangan','$jammulai', '$jamselesai','$date')";
+            $qry=mysql_query($q);
+            if($qry){
+                echo "Anda berhasil membooking";
+            }else{
+                echo "Nda gagal membooking";
+            }
+
+        // }
+    // }
 }
 
 ?>
+<div class="container">
 <div class="col-md-6">
 <form action="" method="post">
+    Nama pemesan
+    <input type="text" name="nama" class="form-control" value="<?php echo $nama ?>" readonly>
+    Pilih lapangan
+    <select name="lapangan" class="form-control" id="">
+        <option value="1">Lapangan 1</option>
+        <option value="2">Lapangan 2</option>
+    </select>
     Jam Mulai
     <select name="mulai" class="form-control" id="">
-        <option value="08">08.00</option>
-        <option value="09">09.00</option>
+        <option value="8">08.00</option>
+        <option value="9">09.00</option>
         <option value="10">10.00</option>
         <option value=""></option>
         <option value=""></option>
@@ -41,8 +76,8 @@ if(isset($_POST['submit'])){
 
     Jam Selesai
     <select name="selesai" class="form-control" id="">
-        <option value="08">08.00</option>
-        <option value="09">09.00</option>
+        <option value="8">08.00</option>
+        <option value="9">09.00</option>
         <option value="10">10.00</option>
         <option value=""></option>
         <option value=""></option>
@@ -84,6 +119,36 @@ if(isset($_POST['submit'])){
     <input type="checkbox" name="jam" id="">24.00<br> -->
 <input type="submit" name="submit" value="Booking">
 </form>
+</div>
+
+<div class="col-md-6">
+    Jadwal Booking
+
+    <table class="table">
+        <tr>
+            <th>Nama</th>
+            <th>Lapangan</th>
+            <th>JamMulai</th>
+            <th>Jam Selesai</th>
+        </tr>
+
+    <?php
+    $date = date('Y-m-d');
+    $q="SELECT * FROM booking WHERE date='$date'";
+    // echo $q;
+    $qry = mysql_query($q);
+    while ($row = mysql_fetch_array($qry)) { ?>
+    <tr>
+        <td><?php echo $row['username'];?></td>
+        <td><?php echo $row['lapangan'];?></td>
+        <td><?php echo $row['jam_mulai'];?></td>
+        <td><?php echo $row['jam_selesai'];?></td>
+    </tr>
+    <?php }
+
+?>
+</table>
+</div>
 </div>
 
 <?php include "foot.php"; ?>

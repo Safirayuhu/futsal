@@ -19,8 +19,8 @@ if(isset($_POST['submit'])){
 
 ?>
 
-
 <div class="col-md-6">
+<h1>Silahkan isi form dibawah ini</h1>
 <form action="" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>

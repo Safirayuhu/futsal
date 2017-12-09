@@ -1,4 +1,4 @@
-
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Futsal</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -33,10 +33,13 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="info.php">Info Lapangan</a></li>
             <li><a href="daftar.php">Pendaftaran</a></li>
             <li><a href="lapangan.php">Pemesanan</a></li>
+            <li><a href="data_booking.php">Data pemesanan</a></li>
             <li><a href="#contact">Kontak</a></li>
             <li><a href="login.php">Masuk</a></li>
+            <li><a href="logout.php">Keluar</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -45,3 +48,4 @@
     
 
 <br><br><br><br>
+<div class="container">
