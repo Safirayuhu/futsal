@@ -34,12 +34,27 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="info.php">Info Lapangan</a></li>
+            <?php 
+            if(empty($_SESSION['nama'])){?>
             <li><a href="daftar.php">Pendaftaran</a></li>
+            <?php } ?>
+            <?php 
+            if(!empty($_SESSION['nama'])){?>
             <li><a href="lapangan.php">Pemesanan</a></li>
+            <?php } ?>
+            <?php 
+            if(!empty($_SESSION['nama'])){?>
             <li><a href="data_booking.php">Data pemesanan</a></li>
+            <?php } ?>
             <li><a href="#contact">Kontak</a></li>
+            <?php
+            if(empty($_SESSION['nama'])){?>
             <li><a href="login.php">Masuk</a></li>
+            <?php } ?>
+            <?php
+            if(!empty($_SESSION['nama'])){?>
             <li><a href="logout.php">Keluar</a></li>
+            <?php } ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

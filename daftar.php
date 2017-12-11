@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
   </div>
 
 
-  <input type="submit" class="btn btn-default" name="submit" value="Daftar">
+  <input type="submit" class="btn btn-primary btn-block" name="submit" value="Daftar">
 </form>
 </div>
 

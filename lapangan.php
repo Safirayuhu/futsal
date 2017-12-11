@@ -14,32 +14,26 @@ if(isset($_POST['submit'])){
     $jamselesai = $_POST['selesai'];
     $date = date('Y-m-d');
 
-    // if($jamselesai < $jammulai){
-    //     echo "Jam selesai harus diatas jam mulai";
-    // }elseif($jamselesai == $jammulai){
-    //     echo "Jam selesai harus diatas jam mulai";
-    // }else{
+    if($jamselesai <= $jammulai){
+        echo "<center><h3><p style='color:red;'>Maaf, Jam mulai harus dibawah jam selesai</p></h3></center>";
+    }
 
-        // $qcek = "SELECT jam_mulai FROM booking WHERE date='$date'";
-        // // echo $qcek;
-        // $qrycek = mysql_query($qcek);
-        // $cekdata = mysql_fetch_array($qrycek);
+    $qcek = "SELECT jam_mulai FROM booking WHERE jam_mulai='$jammulai' AND lapangan='$lapangan'";
+    // echo $qcek;
+    // die();
+    $qrycek = mysql_query($qcek);
+    if(mysql_num_rows($qrycek) > 0){
+        echo "<center><h2><p style='color:red;'>Maaf, Jam $jammulai dan lapangan $lapangan sudah di booking</p></h2></center>";
+    }else{
+        $q="INSERT INTO booking (username,lapangan,jam_mulai, jam_selesai,date)VALUES ('$nama','$lapangan','$jammulai', '$jamselesai','$date')";
+        $qry=mysql_query($q);
+        if($qry){
+            echo "<center><h2><p style='color:green;'>Anda berhasil membooking, Silahkan cek Data pemesanan anda</p></h2></center>";
+        }else{
+            echo "gagal membooking";
+        }
+    }
 
-        // if($cekdata['jam_mulai'] == $jammulai){
-        //     echo "<script>alert('Jam mulai sudah di booking')</script>";
-        //     // header('location:lapangan.php');
-        // }else{
-
-            $q="INSERT INTO booking (username,lapangan,jam_mulai, jam_selesai,date)VALUES ('$nama','$lapangan','$jammulai', '$jamselesai','$date')";
-            $qry=mysql_query($q);
-            if($qry){
-                echo "Anda berhasil membooking";
-            }else{
-                echo "Nda gagal membooking";
-            }
-
-        // }
-    // }
 }
 
 ?>
