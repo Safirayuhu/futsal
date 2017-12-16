@@ -4,15 +4,20 @@ include "head.php";
 
 if(isset($_POST['submit'])){
     $nama = $_POST['name'];
-    $pass = $_POST['name'];
+    $pass = $_POST['password'];
     $repass = $_POST['repassword'];
+    $nohp = $_POST['nohp'];
+    $alamat = $_POST['alamat'];
     
     if($pass == $repass){
-        $q="INSERT INTO user (nama_user, password) VALUES ('$nama', '$pass')";
+        $q="INSERT INTO user (username, password,no_hp,alamat) VALUES ('$nama', '$pass', '$nohp','$alamat')";
         $qry=mysql_query($q);
+        if($qry){
+          echo "<script>alert('Berhasil mendaftar')</script>";
+        }
 
     }else{
-        echo "password tidak sama";
+        echo "<center><p style='color:red'>Maaf, password tidak sama</p></center>";
     }
 
 }
@@ -24,7 +29,15 @@ if(isset($_POST['submit'])){
 <form action="" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
-    <input type="username" class="form-control" id="exampleInputEmail1" placeholder="username" name="name">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="username" name="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">No Handphone</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="username" name="nohp">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Alamat</label>
+    <textarea name="alamat" class="form-control" id="" cols="10" rows="5"></textarea>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>

@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
         echo "<center><h3><p style='color:red;'>Maaf, Jam mulai harus dibawah jam selesai</p></h3></center>";
     }
 
-    $qcek = "SELECT jam_mulai FROM booking WHERE jam_mulai='$jammulai' AND lapangan='$lapangan'";
+    $qcek = "SELECT jam_mulai FROM booking WHERE jam_mulai='$jammulai' AND lapangan='$lapangan' AND date='$date'";
     // echo $qcek;
     // die();
     $qrycek = mysql_query($qcek);

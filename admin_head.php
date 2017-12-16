@@ -28,33 +28,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Futsal Online</a>
+          <a class="navbar-brand" href="index.php">Admin Futsal</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="info.php">Info Lapangan</a></li>
             <?php 
-            if(empty($_SESSION['nama'])){?>
-            <li><a href="daftar.php">Pendaftaran</a></li>
+            if(!empty($_SESSION['nama'])){?>
+            <li><a href="admin_user.php">Data user</a></li>
             <?php } ?>
             <?php 
             if(!empty($_SESSION['nama'])){?>
-            <li><a href="lapangan.php">Pemesanan</a></li>
-            <?php } ?>
-            <?php 
+            <li><a href="admin_booking.php">Data pemesan</a></li>
+            <?php } 
             if(!empty($_SESSION['nama'])){?>
-            <li><a href="data_booking.php">Data pemesanan</a></li>
-            <?php } ?>
-            <!-- <li><a href="#contact">Kontak</a></li> -->
-            <?php
-            if(empty($_SESSION['nama'])){?>
-            <li><a href="login.php">Masuk</a></li>
-            <?php } ?>
-            <?php
+            <li><a href="admin_lapangan.php">Data lapangan</a></li>
+            <?php } 
             if(!empty($_SESSION['nama'])){?>
             <li><a href="logout.php">Keluar</a></li>
             <?php } ?>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
