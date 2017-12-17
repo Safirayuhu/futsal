@@ -1,6 +1,6 @@
 <?php
 include "koneksi.php";
-include "head.php";
+include "admin_head.php";
 
 if(isset($_POST['submit'])){
     $name = $_POST['username'];

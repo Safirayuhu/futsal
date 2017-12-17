@@ -70,6 +70,8 @@ if(isset($_POST['submit'])){
         <!-- <td>Nama</td> -->
         <td>Gambar</td>
         <td>Detail</td>
+        <td>Edit</td>
+        <td>Hapus</td>
         <!-- <td>Jam selesai</td> -->
         <!-- <td>Tanggal</td> -->
         <!-- <td>Pembayaran</td> -->
@@ -81,6 +83,8 @@ if(isset($_POST['submit'])){
         <td><?php echo $no ?></td>
         <td><img width="15%" src="uploads/<?php echo $row['image']?>" alt=""></td>
         <td><?php echo $row['detail']?></td>
+        <td><a href="admin_lapangan_edit.php?id=<?php echo $row['id_lapangan']?>">Edit</a></td>
+        <td><a href="admin_lapangan_hapus.php?id=<?php echo $row['id_lapangan']?>">Hapus</a></td>
         <!-- <td><?php echo $row['jam_mulai']?></td> -->
         <!-- <td><?php echo $row['jam_selesai']?></td> -->
         <!-- <td><?php echo $row['date']?></td> -->

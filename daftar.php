@@ -14,6 +14,7 @@ if(isset($_POST['submit'])){
         $qry=mysql_query($q);
         if($qry){
           echo "<script>alert('Berhasil mendaftar')</script>";
+          header('location:login.php');
         }
 
     }else{
