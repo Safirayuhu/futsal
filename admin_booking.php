@@ -22,6 +22,7 @@ $qry = mysql_query($q);
         <td>Jam mulai</td>
         <td>Jam selesai</td>
         <td>Tanggal</td>
+        <td>Hapus</td>
         <!-- <td>Pembayaran</td> -->
     </tr>
     <?php
@@ -34,7 +35,7 @@ $qry = mysql_query($q);
         <td><?php echo $row['jam_mulai']?></td>
         <td><?php echo $row['jam_selesai']?></td>
         <td><?php echo $row['date']?></td>
-        <!-- <td><a href="detail_booking.php?id_booking=<?php echo $row['id_booking']?>">Detail</a></td> -->
+        <td><a href="admin_booking_hapus.php?id_booking=<?php echo $row['id_booking']?>">Hapus</a></td>
     </tr>
     <?php $no++;} ?>
 </table>
