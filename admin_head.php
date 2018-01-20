@@ -44,6 +44,9 @@
             <li><a href="admin_lapangan.php">Data lapangan</a></li>
             <?php } 
             if(!empty($_SESSION['nama'])){?>
+            <li><a href="admin_transfer.php">Data Transfer</a></li>
+            <?php } 
+            if(!empty($_SESSION['nama'])){?>
             <li><a href="logout.php">Keluar</a></li>
             <?php } ?>
 

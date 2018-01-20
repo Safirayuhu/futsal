@@ -32,6 +32,7 @@ $qry = mysql_query($q);
         <td><?php echo $row['jam_selesai']?></td>
         <td><?php echo $row['date']?></td>
         <td><a href="detail_booking.php?id_booking=<?php echo $row['id_booking']?>">Detail</a></td>
+        <td></td>
     </tr>
     <?php } ?>
 </table>

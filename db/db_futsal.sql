@@ -46,7 +46,20 @@ CREATE TABLE `booking` (
 
 insert  into `booking`(`id_booking`,`username`,`lapangan`,`jam_mulai`,`jam_selesai`,`date`) values 
 (25,'rani',1,'8','9','2017-12-16'),
-(26,'rani',2,'8','9','2017-12-16');
+(26,'frans',1,'8','8','2018-01-20');
+
+/*Table structure for table `bukti` */
+
+DROP TABLE IF EXISTS `bukti`;
+
+CREATE TABLE `bukti` (
+  `id_bukti` int(11) NOT NULL,
+  `image` varchar(50) DEFAULT NULL,
+  `atasnama` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_bukti`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `bukti` */
 
 /*Table structure for table `lapangan` */
 
@@ -57,13 +70,13 @@ CREATE TABLE `lapangan` (
   `image` varchar(50) DEFAULT NULL,
   `detail` text,
   PRIMARY KEY (`id_lapangan`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `lapangan` */
 
 insert  into `lapangan`(`id_lapangan`,`image`,`detail`) values 
-(3,'futsal1.jpg','detail lapangan 1'),
-(4,'futsal2.jpg','detail lapangan 2');
+(4,'futsal2.jpg','detail lapangan 211'),
+(6,'Capture.PNG','');
 
 /*Table structure for table `user` */
 
@@ -76,7 +89,7 @@ CREATE TABLE `user` (
   `no_hp` varchar(15) DEFAULT NULL,
   `alamat` text,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
@@ -86,7 +99,8 @@ insert  into `user`(`id_user`,`username`,`password`,`no_hp`,`alamat`) values
 (3,'edo','edo',NULL,NULL),
 (4,'tes','tes',NULL,NULL),
 (5,'adi','adi','0819282929','jalan raya no 17 tangerang'),
-(6,'rani','rani','08918191','jln raya no 21');
+(6,'rani','rani','08918191','jln raya no 21'),
+(7,'andi','andi','0819181918','jln abdffjl');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
